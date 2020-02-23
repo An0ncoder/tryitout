@@ -4,7 +4,7 @@
       app
       temporary
       right
-      :value="$store.state.drawerOpen && $vuetify.breakpoint.mdAndUp"
+      :value="open && $vuetify.breakpoint.mdAndUp"
       color="green"
       @input="close($event)"
       class="details-drawer"
@@ -16,13 +16,13 @@
 
     <!-- mobile -->
     <v-dialog
-      :value="$store.state.drawerOpen && $vuetify.breakpoint.xsOnly"
+      :value="open && $vuetify.breakpoint.smAndDown"
       fullscreen
       hide-overlay
       transition="dialog-bottom-transition"
     >
       <v-toolbar dark color="grey">
-        <v-btn icon dark @click="$store.commit('toggleDrawer')">
+        <v-btn icon dark @click="$emit('close')">
           <v-icon>mdi-close</v-icon>
         </v-btn>
         <v-toolbar-title>Details</v-toolbar-title>
@@ -45,7 +45,7 @@ export default {
   methods: {
     close($event) {
       if (!$event) {
-        this.$store.commit("toggleDrawer");
+        this.$emit('close')
       }
     }
   }

@@ -2,7 +2,7 @@
 <v-container>
 <v-btn @click="toggleDrawer()">Open drawer</v-btn>
 <v-btn@click="debuglog(open)">Open value?</v-btn>
-  <Drawer />
+  <Drawer :open=$store.state.drawerOpen @close="$store.commit('toggleDrawer')"/>
 </v-container>
 </template>
 
