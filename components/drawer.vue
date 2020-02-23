@@ -1,5 +1,6 @@
 <template>
   <v-layout>
+    <!-- tablet landscape / desktop -->
     <v-navigation-drawer
       app
       temporary
@@ -14,14 +15,14 @@
       </v-container>
     </v-navigation-drawer>
 
-    <!-- mobile -->
+    <!-- tablet portrait / smartphones -->
     <v-dialog
       :value="open && $vuetify.breakpoint.smAndDown"
       fullscreen
       hide-overlay
       transition="dialog-bottom-transition"
     >
-      <v-toolbar dark color="grey">
+      <v-toolbar dark color="green">
         <v-btn icon dark @click="$emit('close')">
           <v-icon>mdi-close</v-icon>
         </v-btn>
